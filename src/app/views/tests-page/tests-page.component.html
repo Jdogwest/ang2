@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="content">
+    <div class="btn_group">
+      <button
+        class="btn"
+        routerLink="actual"
+        [ngClass]="this.activity1"
+        (click)="setActive(1)"
+      >
+        Актуальные
+      </button>
+      <button
+        class="btn"
+        routerLink="all"
+        [ngClass]="this.activity2"
+        (click)="setActive(2)"
+      >
+        Все
+      </button>
+    </div>
+    <div class="table_group">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

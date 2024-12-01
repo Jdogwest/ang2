@@ -1,0 +1,39 @@
+<div class="sidebar">
+  <div class="navigation_link">
+    <a class="link" routerLink="" (click)="this.goHome()">
+      <i class="pi pi-arrow-left"></i> Поиск другого пациента
+    </a>
+  </div>
+
+  <div class="patient_info">
+    <h1 class="patient_name"></h1>
+    <p class="patient_description"></p>
+  </div>
+
+  <div class="action_links">
+    <a
+      routerLink="tests-details/actual"
+      class="action_link"
+      (click)="this.setActive(1)"
+      [ngClass]="this.activity1"
+    >
+      Анализы пациента
+    </a>
+    <a
+      routerLink="diagnosis/tests"
+      class="action_link"
+      (click)="this.setActive(2)"
+      [ngClass]="this.activity2"
+    >
+      Предположительные диагнозы
+    </a>
+    <a
+      routerLink="#"
+      class="action_link"
+      (click)="this.setActive(3)"
+      [ngClass]="this.activity3"
+    >
+      Сохраненные диагнозы
+    </a>
+  </div>
+</div>

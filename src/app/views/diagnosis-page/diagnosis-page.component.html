@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="content">
+    <div class="btn_group">
+      <div class="btn_select">
+        <button
+          class="btn"
+          routerLink="tests"
+          [ngClass]="this.activity1"
+          (click)="setActive(1)"
+        >
+          Актуальные
+        </button>
+        <button
+          class="btn"
+          routerLink="symptoms"
+          [ngClass]="this.activity2"
+          (click)="setActive(2)"
+        >
+          Все
+        </button>
+      </div>
+    </div>
+    <div class="table_group"></div>
+    <router-outlet></router-outlet>
+  </div>
+</div>

@@ -1,1 +1,36 @@
-/* You can add global styles to this file, and also import other style files */
+@import "primeicons/primeicons.css";
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Helvetica", Sans-Serif;
+}
+
+.layout {
+  display: flex;
+  flex-direction: row;
+  height: 100vh;
+  position: relative;
+}
+
+app-left-sidebar {
+  z-index: 1;
+  flex-shrink: 0;
+}
+
+.main-content {
+  background: #f1edfa;
+  flex-grow: 1;
+  padding: 2rem;
+  overflow-y: auto;
+}
+
+:link {
+  color: #000;
+  text-decoration: none;
+}
+
+:visited {
+  color: #000;
+}

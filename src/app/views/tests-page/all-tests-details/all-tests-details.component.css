@@ -1,0 +1,10 @@
+.content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+}
+
+.table_group {
+  width: 1200px;
+}

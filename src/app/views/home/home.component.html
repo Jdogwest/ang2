@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="content">
+    <div class="text">
+      <h1 class="search_text">Поиск нужного пациента</h1>
+    </div>
+    <div>
+      <form>
+        <div class="form_group">
+          <input
+            placeholder="Введите ФИО пациента"
+            class="form_input"
+            type="text"
+          />
+          <button
+            class="form_btn"
+            type="submit"
+            (click)="searchForClient()"
+            routerLink="tests-details/actual"
+          >
+            <i class="pi pi-arrow-right"></i>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

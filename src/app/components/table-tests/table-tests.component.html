@@ -1,0 +1,19 @@
+<table class="table">
+  <thead>
+    <tr>
+      <th>Вид анализа</th>
+      <th>Дата выполнения</th>
+      <th>Результат</th>
+    </tr>
+  </thead>
+  <tbody>
+    <!-- Использую чисто при примера вывода, так что цикл удалить при ненадобности -->
+    <tr *ngFor="let item of data">
+      <td>{{ item.analysisType }}</td>
+      <td>{{ item.executionDate }}</td>
+      <td>
+        <button class="result_btn"><i class="pi pi-search"></i></button>
+      </td>
+    </tr>
+  </tbody>
+</table>
