@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ButtonSelectComponent } from '../../../components/button-select/button-select.component';
 import { TableTestsComponent } from '../../../components/table-tests/table-tests.component';
 
 @Component({
   selector: 'app-tests-details',
-  imports: [TableTestsComponent, ButtonSelectComponent],
+  imports: [TableTestsComponent],
   templateUrl: './tests-details.component.html',
   styleUrl: './tests-details.component.css',
 })

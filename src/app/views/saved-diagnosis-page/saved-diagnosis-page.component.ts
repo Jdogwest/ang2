@@ -6,10 +6,10 @@ import { DiagnosisTableComponent } from '../../components/diagnosis-table/diagno
 @Component({
   selector: 'app-diagnosis-symptoms',
   imports: [RouterModule, RouterOutlet, CommonModule, DiagnosisTableComponent],
-  templateUrl: './diagnosis-page.component.html',
-  styleUrl: './diagnosis-page.component.css',
+  templateUrl: './saved-diagnosis-page.component.html',
+  styleUrl: './saved-diagnosis-page.component.css',
 })
-export class DiagnosisPageComponent {
+export class SavedDiagnosisPageComponent {
   activity1: string = 'selected';
   activity2: string = '';
 
@@ -28,22 +28,22 @@ export class DiagnosisPageComponent {
   diagnosisData: any[] = [
     {
       number: '1',
-      diagnosis: 'Какой-то диагноз',
+      diagnosis: 'Какой-то cохранённый диагноз',
       points: '100/10',
     },
     {
       number: '2',
-      diagnosis: 'Еще какой-то диагноз',
+      diagnosis: 'Еще какой-то сохранённый диагноз',
       points: '8',
     },
     {
       number: '3',
-      diagnosis: 'Ну и вот еще',
+      diagnosis: 'Ну и вот еще сохранённый',
       points: '2',
     },
     {
       number: '4',
-      diagnosis: 'И сноваа... ДИАГНОЗ',
+      diagnosis: 'И сноваа сохранённый... ДИАГНОЗ',
       points: '10',
     },
   ];
