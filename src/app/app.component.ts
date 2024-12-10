@@ -1,3 +1,4 @@
+import { StoreService } from './services/store.service';
 import { Component, inject } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 

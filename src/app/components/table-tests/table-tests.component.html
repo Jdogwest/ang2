@@ -7,10 +7,9 @@
     </tr>
   </thead>
   <tbody>
-    <!-- Использую чисто при примера вывода, так что цикл удалить при ненадобности -->
     <tr *ngFor="let item of data">
-      <td>{{ item.analysisType }}</td>
-      <td>{{ item.executionDate }}</td>
+      <td>{{ item.name }}</td>
+      <td>{{ item.date }}</td>
       <td>
         <button class="result_btn"><i class="pi pi-search"></i></button>
       </td>
