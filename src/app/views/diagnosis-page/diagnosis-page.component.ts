@@ -1,7 +1,8 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterModule, RouterOutlet } from '@angular/router';
 import { DiagnosisTableComponent } from '../../components/diagnosis-table/diagnosis-table.component';
+import { StoreService } from '../../services/store.service';
 
 @Component({
   selector: 'app-diagnosis-symptoms',
@@ -12,6 +13,12 @@ import { DiagnosisTableComponent } from '../../components/diagnosis-table/diagno
 export class DiagnosisPageComponent {
   activity1: string = 'selected';
   activity2: string = '';
+  diagnosisData: any;
+  StoreService: StoreService = inject(StoreService);
+
+  constructor() {
+    this.diagnosisData = this.StoreService.getClientData()?.current_diagnosis;
+  }
 
   public setActive(n: number) {
     this.activity1 = '';
@@ -25,28 +32,4 @@ export class DiagnosisPageComponent {
         break;
     }
   }
-  diagnosisData: any[] = [
-    {
-      number: '1',
-      diagnosis: 'Какой-то диагноз',
-      points: '100/10',
-    },
-    {
-      number: '2',
-      diagnosis: 'Еще какой-то диагноз',
-      points: '8',
-    },
-    {
-      number: '3',
-      diagnosis: 'Ну и вот еще',
-      points: '2',
-    },
-    {
-      number: '4',
-      diagnosis: 'И сноваа... ДИАГНОЗ',
-      points: '10',
-    },
-  ];
-  constructor() {}
-  ngOnInit(): void {}
 }

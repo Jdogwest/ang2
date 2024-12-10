@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { TableTestsComponent } from '../../../components/table-tests/table-tests.component';
+import { StoreService } from '../../../services/store.service';
 
 @Component({
   selector: 'app-tests-details',
@@ -7,21 +8,12 @@ import { TableTestsComponent } from '../../../components/table-tests/table-tests
   templateUrl: './tests-details.component.html',
   styleUrl: './tests-details.component.css',
 })
-export class TestsDetailsComponent implements OnInit {
-  analysisData: any[] = [
-    {
-      analysisType: 'Общий анализ крови',
-      executionDate: '22.11.2024',
-    },
-    {
-      analysisType: 'Биохимический анализ крови',
-      executionDate: '22.11.2024',
-    },
-    {
-      analysisType: 'Гормональный анализ крови',
-      executionDate: '22.11.2024',
-    },
-  ];
-  constructor() {}
-  ngOnInit(): void {}
+export class TestsDetailsComponent {
+  storeService: StoreService = inject(StoreService);
+  analysisData: any;
+  constructor() {
+    this.analysisData = this.storeService
+      .getClientData()
+      ?.analysis.filter((item: any) => item.status === 'Действителен');
+  }
 }

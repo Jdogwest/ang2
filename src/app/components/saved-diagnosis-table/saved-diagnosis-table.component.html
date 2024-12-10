@@ -3,6 +3,7 @@
     <tr>
       <th>№</th>
       <th>Предположительный диагноз</th>
+      <th>Дата</th>
       <th>Баллы</th>
       <th>Подробнее</th>
     </tr>
@@ -11,6 +12,7 @@
     <tr *ngFor="let item of data">
       <td>{{ data.indexOf(item) + 1 }}</td>
       <td>{{ item.name }}</td>
+      <td>{{ item.date }}</td>
       <td>{{ item.score }}</td>
       <td>
         <button class="result_btn"><i class="pi pi-search"></i></button>

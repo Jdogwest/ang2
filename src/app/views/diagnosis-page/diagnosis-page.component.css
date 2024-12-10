@@ -1,3 +1,7 @@
+.table_group {
+  width: 75%;
+  margin: auto;
+}
 .btn_select {
   background: white;
   border-radius: 25px;
