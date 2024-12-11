@@ -15,7 +15,7 @@
   font-weight: 700;
   padding: 15px 160px;
   cursor: pointer;
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
   border-radius: 25px;
 }
 
@@ -35,5 +35,5 @@
   color: #4f4375;
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   transform: scale(1.05);
-  transition: all 0.3s ease;
+  /* transition: all 0.3s ease; */
 }
