@@ -1,10 +1,22 @@
-import { Component, EventEmitter, Output } from '@angular/core';
-import { DialogTableComponent } from '../dialog-table/dialog-table.component';
+import { Component, Input } from '@angular/core';
+import { AppComponent } from '../../app.component';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-dialog',
-  imports: [DialogTableComponent],
+  imports: [CommonModule],
   templateUrl: './dialog.component.html',
   styleUrl: './dialog.component.css',
 })
-export class DialogComponent {}
+export class DialogComponent {
+  @Input() data: any;
+
+  constructor(private appComponent: AppComponent) {}
+
+  // ngOnChanges() {
+  //   console.log(this.data);
+  // }
+  closeDialog() {
+    this.appComponent.closeDialog();
+  }
+}

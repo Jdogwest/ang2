@@ -15,7 +15,13 @@ import { DialogComponent } from './components/dialog/dialog.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SidebarInfoComponent, RouterModule, CommonModule],
+  imports: [
+    RouterOutlet,
+    SidebarInfoComponent,
+    RouterModule,
+    CommonModule,
+    DialogComponent,
+  ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
 })
@@ -24,7 +30,17 @@ export class AppComponent {
   subscription!: Subscription;
   routerSubscription!: Subscription;
   clientFound = false;
+  dialogOpened = false;
+  dialogData: any;
 
+  openDialog(data: any) {
+    this.dialogData = data;
+    this.dialogOpened = true;
+  }
+
+  closeDialog() {
+    this.dialogOpened = false;
+  }
   constructor(private router: Router) {}
 
   ngOnInit() {
