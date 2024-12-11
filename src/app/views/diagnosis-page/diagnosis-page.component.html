@@ -1,8 +1,26 @@
 <div class="container">
   <div class="content">
     <div class="table_group">
-      <app-diagnosis-table [data]="diagnosisData"></app-diagnosis-table>
+      <app-diagnosis-table
+        [data]="diagnosisData"
+        [editMode]="editMode"
+      ></app-diagnosis-table>
     </div>
     <router-outlet></router-outlet>
+    <div class="edit_group">
+      <div *ngIf="!editMode">
+        <button class="btn_edit" (click)="editDiagnosis()">
+          Редактировать
+        </button>
+      </div>
+      <div *ngIf="editMode">
+        <button class="btn_save" (click)="saveSelectedDiagnosis()">
+          Сохранить
+        </button>
+        <button class="btn_cancel" (click)="cancelEditDiagnosis()">
+          Отменить
+        </button>
+      </div>
+    </div>
   </div>
 </div>

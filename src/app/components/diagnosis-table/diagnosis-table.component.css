@@ -72,3 +72,25 @@ tbody tr {
 .table td:nth-child(2) {
   text-align: left;
 }
+
+.checkbox-input {
+  appearance: none;
+  width: 28px;
+  height: 28px;
+  background: #ffffff;
+  border-radius: 10px;
+  border: 2px solid #7f6abe;
+  position: relative;
+}
+.checkbox-input:checked {
+  background: #7f6abe;
+}
+.checkbox-input:checked::after {
+  content: "\2714";
+  color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+}

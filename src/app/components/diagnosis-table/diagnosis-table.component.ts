@@ -10,6 +10,8 @@ import { AppComponent } from '../../app.component';
 })
 export class DiagnosisTableComponent {
   @Input() data!: any[];
+  @Input() editMode: boolean = false;
+  selectedItems: any[] = [];
 
   constructor(private appComponent: AppComponent) {}
 
@@ -17,5 +19,17 @@ export class DiagnosisTableComponent {
     this.appComponent.openDialog({
       diagnosisData: item,
     });
+  }
+
+  onCheckboxChange(event: any, item: any): void {
+    if (event.target.checked) {
+      this.selectedItems.push(item);
+    } else {
+      this.selectedItems = this.selectedItems.filter((i) => 1 !== item);
+    }
+  }
+
+  getSelectedItems(): any[] {
+    return this.selectedItems;
   }
 }

@@ -1,8 +1,4 @@
-.table_group {
-  width: 75%;
-  margin: auto;
-}
-.btn_select {
+/* .btn_select {
   background: white;
   border-radius: 25px;
   display: flex;
@@ -40,4 +36,47 @@
   box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   transform: scale(1.05);
   transition: all 0.3s ease;
+} */
+.edit_group {
+  width: 100%;
+  margin-top: 30px;
+  display: flex;
+  justify-content: end;
+}
+.btn_edit,
+.btn_cancel,
+.btn_save {
+  padding: 10px 15px;
+  font-size: 17px;
+  border-radius: 15px;
+  border: none;
+}
+
+.btn_edit {
+  background-color: #4f4375;
+  color: white;
+}
+.btn_edit:hover {
+  background: #30284b;
+}
+
+.btn_save {
+  color: rgb(0, 126, 27);
+  border: 1px solid rgb(0, 126, 27);
+  background-color: rgba(0, 255, 76, 0.1);
+  margin-right: 10px;
+}
+.btn_save:hover {
+  background: rgb(0, 126, 27);
+  color: white;
+}
+
+.btn_cancel {
+  color: rgb(197, 0, 59);
+  border: 1px solid rgb(197, 0, 59);
+  background-color: hsla(342, 100%, 39%, 0.1);
+}
+.btn_cancel:hover {
+  background: rgb(197, 0, 59);
+  color: white;
 }

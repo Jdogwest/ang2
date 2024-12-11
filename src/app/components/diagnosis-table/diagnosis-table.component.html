@@ -1,6 +1,7 @@
 <table class="table">
   <thead>
     <tr>
+      <th *ngIf="editMode">Выбрать</th>
       <th>№</th>
       <th>Предположительный диагноз</th>
       <th>Баллы</th>
@@ -9,6 +10,14 @@
   </thead>
   <tbody>
     <tr *ngFor="let item of data">
+      <td *ngIf="editMode">
+        <input
+          class="checkbox-input"
+          type="checkbox"
+          name="diagnosis"
+          (change)="onCheckboxChange($event, item)"
+        />
+      </td>
       <td>{{ data.indexOf(item) + 1 }}</td>
       <td>{{ item.name }}</td>
       <td>{{ item.score }}</td>
