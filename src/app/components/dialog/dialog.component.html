@@ -1,32 +1,36 @@
 <div class="dialog_overlay">
   <div class="dialog_content">
     <h2 class="dialog_name">
-      {{ data?.analysisData.name }} ({{ data?.analysisData.date }})
+      {{ data?.analysisData?.name || data?.diagnosisData?.name }}
+      ({{
+        data?.analysisData?.date || (data?.diagnosisData?.date ?? "Неизвестно")
+      }})
     </h2>
     <div>
-      <table class="table">
+      <table class="table" *ngIf="data">
         <thead>
           <tr>
             <th>Показатель</th>
-            <th>Результат</th>
-            <th>Рефересное значение</th>
+            <th *ngIf="data?.analysisData">Результат</th>
+            <th *ngIf="data?.analysisData">Рефересное значение</th>
             <th>Комментарий</th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let item of data?.analysisData.result">
+          <tr
+            *ngFor="
+              let item of data?.analysisData?.result ||
+                data?.diagnosisData?.result
+            "
+          >
             <td>{{ item.parameter }}</td>
-            <td>{{ item.value }}</td>
-            <td>{{ item.lower_limit }} - {{ item.upper_limit }}</td>
+            <td *ngIf="data?.analysisData">{{ item.value }}</td>
+            <td *ngIf="data?.analysisData">
+              {{ item.lower_limit }} - {{ item.upper_limit }}
+            </td>
             <td>
-              <span *ngIf="item.value > item.upper_limit">Повышен</span>
-              <span
-                *ngIf="
-                  item.value < item.upper_limit && item.value > item.lower_limit
-                "
-                >Нормально</span
-              >
-              <span *ngIf="item.parameter < item.lower_limit">Повышен</span>
+              <span *ngIf="data?.analysisData">{{ item.difference }}</span>
+              <span *ngIf="data?.diagnosisData">{{ item.difference }}</span>
             </td>
           </tr>
         </tbody>

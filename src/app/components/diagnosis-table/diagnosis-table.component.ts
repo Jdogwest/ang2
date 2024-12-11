@@ -1,5 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { AppComponent } from '../../app.component';
 
 @Component({
   selector: 'app-diagnosis-table',
@@ -9,4 +10,12 @@ import { CommonModule } from '@angular/common';
 })
 export class DiagnosisTableComponent {
   @Input() data!: any[];
+
+  constructor(private appComponent: AppComponent) {}
+
+  openDialog(item: any): void {
+    this.appComponent.openDialog({
+      diagnosisData: item,
+    });
+  }
 }

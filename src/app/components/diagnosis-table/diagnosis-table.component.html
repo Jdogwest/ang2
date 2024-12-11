@@ -13,7 +13,9 @@
       <td>{{ item.name }}</td>
       <td>{{ item.score }}</td>
       <td>
-        <button class="result_btn"><i class="pi pi-search"></i></button>
+        <button class="result_btn" (click)="openDialog(item)">
+          <i class="pi pi-search"></i>
+        </button>
       </td>
     </tr>
   </tbody>
