@@ -18,6 +18,10 @@
           </button>
         </div>
       </form>
+      <p *ngIf="this.gotError" class="error_text">
+        Ошибка поиска пациента. Проверьте правильность данных и повторите
+        попытку.
+      </p>
     </div>
   </div>
 </div>

@@ -23,11 +23,17 @@ export class StoreService {
   getClientDataWithName(name: string) {
     this.clientName = name;
 
-    let newClientData = this.http.get('http://127.0.0.1:8000/' + name);
-
-    let subscription = newClientData.subscribe((data: any) =>
-      this.placeData(data)
-    );
+    let newClientData = this.http.get('http://127.0.0.1:8000/patient/' + name, {
+      observe: 'response',
+    });
+    let subscription = newClientData.subscribe({
+      next: (response: any) => {
+        this.placeData(response.body); // Передаем только тело ответа в метод placeData
+      },
+      error: (error: any) => {
+        this.messageService.sendError('Пациент не найден.');
+      },
+    });
   }
 
   clear() {
@@ -39,6 +45,8 @@ export class StoreService {
   }
 
   placeData(data: gettedData) {
+    if (data.Analizy.length == 0)
+      this.messageService.sendError('Пациент не имеет анализов.');
     this.clientData = this.formatData(data);
     this.clientCharacteristics = this.formatCharacteristics(data);
     this.messageService.changeaState(true);
@@ -78,11 +86,12 @@ export class StoreService {
       saved_disease: formedItems,
     };
 
-    console.log(finalData);
-    let newClientData = this.http.post(
-      'http://127.0.0.1:8000/write_data',
-      finalData
-    );
+    this.http
+      .post('http://127.0.0.1:8000/write_data', finalData)
+      .subscribe()
+      .unsubscribe();
+
+    this.getClientDataWithName(this.clientName);
   }
 
   formatCharacteristics(data: gettedData): ClientCharacteristics | undefined {

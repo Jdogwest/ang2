@@ -40,3 +40,10 @@
 .form_btn:hover {
   background: #30284b;
 }
+
+.error_text {
+  color: #f44336;
+  font-size: 18px;
+  margin: 10px 0;
+  text-align: center;
+}
