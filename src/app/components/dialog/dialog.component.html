@@ -11,9 +11,10 @@
         <thead>
           <tr>
             <th>Показатель</th>
+            <th *ngIf="data?.analysisData">Ед. измерения</th>
             <th *ngIf="data?.analysisData">Результат</th>
             <th *ngIf="data?.analysisData">Рефересное значение</th>
-            <th>Комментарий</th>
+            <th>Отклонение</th>
           </tr>
         </thead>
         <tbody>
@@ -24,6 +25,7 @@
             "
           >
             <td>{{ item.parameter }}</td>
+            <td *ngIf="data?.analysisData">{{ item.unit }}</td>
             <td *ngIf="data?.analysisData">{{ item.value }}</td>
             <td *ngIf="data?.analysisData">
               {{ item.lower_limit }} - {{ item.upper_limit }}

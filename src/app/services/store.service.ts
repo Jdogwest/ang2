@@ -77,6 +77,7 @@ export class StoreService {
           result: [
             {
               parameter: data.Analizy[0].title,
+              unit: data.Analizy[0].units_measurement,
               value: data.Analizy[0].result,
               lower_limit: data.Analizy[0].lower_bound,
               upper_limit: data.Analizy[0].upper_bound,
@@ -109,6 +110,7 @@ export class StoreService {
           if (item.name === element.designation) {
             clientData.analysis[index].result.push({
               parameter: element.title,
+              unit: element.units_measurement,
               value: element.result,
               lower_limit: element.lower_bound,
               upper_limit: element.upper_bound,
@@ -126,6 +128,7 @@ export class StoreService {
             result: [
               {
                 parameter: element.title,
+                unit: element.units_measurement,
                 value: element.result,
                 lower_limit: element.lower_bound,
                 upper_limit: element.upper_bound,

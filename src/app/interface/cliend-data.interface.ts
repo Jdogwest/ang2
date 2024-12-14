@@ -5,6 +5,7 @@ export interface ClientData {
     date: string;
     result: {
       parameter: string;
+      unit: string;
       value: number;
       lower_limit: number;
       upper_limit: number;
