@@ -29,3 +29,9 @@ export interface ClientData {
     }[];
   }[];
 }
+
+export interface ClientCharacteristics {
+  dateOfBirth: string;
+  gender: string;
+  height: number;
+}

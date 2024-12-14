@@ -2,6 +2,8 @@ import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MessageService } from '../../services/message.service';
+import { StoreService } from '../../services/store.service';
+import { ClientCharacteristics } from './../../interface/cliend-data.interface';
 
 @Component({
   selector: 'app-sidebar-info',
@@ -14,7 +16,16 @@ export class SidebarInfoComponent {
   activity2: string = '';
   activity3: string = '';
 
+  patientName: string = '';
+  patientCharacteristics: ClientCharacteristics | undefined = undefined;
+
   messageService: MessageService = inject(MessageService);
+  storeService: StoreService = inject(StoreService);
+
+  constructor() {
+    this.patientName = this.storeService.getClientName();
+    this.patientCharacteristics = this.storeService.getClientCharacteristics();
+  }
 
   public setActive(n: number) {
     this.activity1 = '';
@@ -31,6 +42,7 @@ export class SidebarInfoComponent {
         this.activity3 = 'active';
         break;
     }
+    console.log(this.patientCharacteristics);
   }
 
   public goHome() {

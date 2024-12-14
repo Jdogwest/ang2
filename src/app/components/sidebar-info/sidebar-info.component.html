@@ -6,8 +6,16 @@
   </div>
 
   <div class="patient_info">
-    <h1 class="patient_name"></h1>
-    <p class="patient_description"></p>
+    <h1 class="patient_name">{{ this.patientName }}</h1>
+    <p class="patient_description">
+      Дата рождения: {{ this.patientCharacteristics?.dateOfBirth }}
+    </p>
+    <p class="patient_description">
+      Рост: {{ this.patientCharacteristics?.height }}
+    </p>
+    <p class="patient_description">
+      Пол: {{ this.patientCharacteristics?.gender }}
+    </p>
   </div>
 
   <div class="action_links">
