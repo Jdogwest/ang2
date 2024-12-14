@@ -5,8 +5,14 @@
   border-collapse: separate;
   border-spacing: 0 10px;
 }
-
+.table thead {
+  box-shadow: 0 -1px 15px 0 #f1edfa, -1px 0 15px 0 #f1edfa, 1px 0 15px 0 #f1edfa;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 .table th {
+  background: #f1edfa;
   font-weight: bold;
   padding: 20px 0;
   border: none;
@@ -28,7 +34,6 @@ tbody tr {
 
 .table tr {
   border-radius: 20px;
-  overflow: hidden;
 }
 
 .table tr:first-child td:first-child {

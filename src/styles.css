@@ -10,7 +10,7 @@
 .layout {
   display: flex;
   flex-direction: row;
-  height: 100vh;
+  min-height: 100vh;
   position: relative;
 }
 
@@ -18,17 +18,28 @@
   background: #f1edfa;
   flex-grow: 1;
   padding: 2rem;
-  overflow-y: auto;
 }
 
 .content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  max-height: 100vh;
 }
 
 .table_group {
+  position: relative;
   width: 100%;
+  padding: 0 20px;
+  max-height: 85vh;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #7f6abe transparent;
+}
+
+.table_group::-webkit-scrollbar-thumb:hover {
+  background: #5e4a9f;
 }
 
 app-sidebar-info {

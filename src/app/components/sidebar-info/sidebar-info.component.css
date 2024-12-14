@@ -5,7 +5,13 @@
   display: flex;
   flex-direction: column;
   height: 100vh;
-  overflow-y: scroll;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: #7f6abe transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb:hover {
+  background: #5e4a9f;
 }
 
 .patient_info {
