@@ -14,13 +14,13 @@ export class DiagnosisPageComponent {
   activity1: string = 'selected';
   activity2: string = '';
   diagnosisData: any;
-  StoreService: StoreService = inject(StoreService);
+  storeService: StoreService = inject(StoreService);
   editMode = false;
   @ViewChild(DiagnosisTableComponent)
   diagnosisTableComponent!: DiagnosisTableComponent;
 
   constructor() {
-    this.diagnosisData = this.StoreService.getClientData()?.current_diagnosis;
+    this.diagnosisData = this.storeService.getClientData()?.current_diagnosis;
     this.diagnosisData.sort((a: any, b: any) => b.score - a.score);
   }
 
@@ -45,6 +45,9 @@ export class DiagnosisPageComponent {
   public saveSelectedDiagnosis() {
     // Тут массив выбранных диагнозов, хз, я не знаю что дальше делать
     const selectedItems = this.diagnosisTableComponent.getSelectedItems();
+
+    this.storeService.addSavedDiagnosis(selectedItems);
+
     this.editMode = false;
   }
 }

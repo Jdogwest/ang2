@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { AppComponent } from '../../app.component';
+import { savedDiagnosis } from '../../interface/cliend-data.interface';
 
 @Component({
   selector: 'app-diagnosis-table',
@@ -11,7 +12,7 @@ import { AppComponent } from '../../app.component';
 export class DiagnosisTableComponent {
   @Input() data!: any[];
   @Input() editMode: boolean = false;
-  selectedItems: any[] = [];
+  selectedItems: savedDiagnosis[] = [];
 
   constructor(private appComponent: AppComponent) {}
 
@@ -29,7 +30,7 @@ export class DiagnosisTableComponent {
     }
   }
 
-  getSelectedItems(): any[] {
+  getSelectedItems(): savedDiagnosis[] {
     return this.selectedItems;
   }
 }
