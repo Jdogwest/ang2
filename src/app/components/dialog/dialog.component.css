@@ -9,6 +9,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: hidden;
 }
 
 .dialog_content {
@@ -19,7 +20,6 @@
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 80%;
   height: 80vh;
-  overflow: scroll;
 }
 
 .dialog_name {
@@ -38,6 +38,17 @@
   right: 35px;
   cursor: pointer;
 }
+.dialog_table {
+  height: 100%;
+  overflow-y: auto;
+  padding: 0 20px;
+  scrollbar-width: thin;
+  scrollbar-color: #7f6abe transparent;
+}
+
+.dialog_table::-webkit-scrollbar-thumb:hover {
+  background: #5e4a9f;
+}
 .table {
   width: 100%;
   font-size: 18px;
@@ -46,7 +57,12 @@
   border-spacing: 0 10px;
   text-align: center;
 }
-
+.table thead {
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
 .table th {
   font-weight: bold;
   padding: 20px 0;
@@ -91,4 +107,10 @@
 .table tr td:last-child {
   border-top-right-radius: 20px;
   border-bottom-right-radius: 20px;
+}
+.table th:nth-child(1),
+.table td:nth-child(1) {
+  overflow-wrap: break-word;
+  padding: 0 50px;
+  text-align: left;
 }

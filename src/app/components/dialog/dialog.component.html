@@ -6,7 +6,7 @@
         data?.analysisData?.date || (data?.diagnosisData?.date ?? "Неизвестно")
       }})
     </h2>
-    <div>
+    <div class="dialog_table">
       <table class="table" *ngIf="data">
         <thead>
           <tr>
@@ -33,8 +33,8 @@
             <td
               [ngClass]="
                 item.difference == 'Норма'
-                  ? 'green_difference'
-                  : 'red_difference'
+                  ? 'normal_difference'
+                  : 'bed_difference'
               "
             >
               {{ item.difference }}
