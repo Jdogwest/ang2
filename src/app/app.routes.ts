@@ -7,7 +7,7 @@ import { TestsDetailsComponent } from './views/tests-page/tests-details/tests-de
 import { testsPageComponent } from './views/tests-page/tests-page.component';
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent },
+  { path: 'home', component: HomeComponent },
   {
     path: 'tests-details',
     component: testsPageComponent,
@@ -24,4 +24,10 @@ export const routes: Routes = [
     path: 'saved-diagnosis',
     component: SavedDiagnosisPageComponent,
   },
+  {
+    path: '**',
+    redirectTo: 'home',
+    pathMatch: 'full',
+  },
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
 ];

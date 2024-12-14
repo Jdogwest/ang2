@@ -24,7 +24,12 @@ export class SidebarInfoComponent {
 
   constructor() {
     this.patientName = this.storeService.getClientName();
-    this.patientCharacteristics = this.storeService.getClientCharacteristics();
+    this.messageService.gotData$.subscribe((message: boolean) => {
+      if (message) {
+        this.patientCharacteristics =
+          this.storeService.getClientCharacteristics();
+      }
+    });
   }
 
   public setActive(n: number) {
@@ -42,10 +47,10 @@ export class SidebarInfoComponent {
         this.activity3 = 'active';
         break;
     }
-    console.log(this.patientCharacteristics);
   }
 
   public goHome() {
     this.messageService.sendMessage(false);
+    this.storeService.clear();
   }
 }

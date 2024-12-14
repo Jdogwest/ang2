@@ -1,28 +1,45 @@
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
+import { inject, Injectable } from '@angular/core';
 import { gettedData } from '../interface/getted-data.interface';
-import { ClientData } from './../interface/cliend-data.interface';
+import {
+  ClientCharacteristics,
+  ClientData,
+} from './../interface/cliend-data.interface';
+import { MessageService } from './message.service';
 
 @Injectable({ providedIn: 'root' })
 export class StoreService {
   private clientName: string = '';
 
+  messageService: MessageService = inject(MessageService);
+
   clientData: ClientData | undefined = undefined;
+  clientCharacteristics: ClientCharacteristics | undefined = undefined;
 
   constructor(private http: HttpClient) {}
 
   getClientDataWithName(name: string) {
     this.clientName = name;
 
-    console.log(name);
-
     let newClientData = this.http.get('http://127.0.0.1:8000/' + name);
 
-    newClientData.subscribe(
-      (data: any) => (this.clientData = this.formatData(data))
+    let subscription = newClientData.subscribe((data: any) =>
+      this.placeData(data)
     );
+  }
 
-    console.log(this.clientData);
+  clear() {
+    this.clientData = undefined;
+    this.clientCharacteristics = undefined;
+    this.clientName = '';
+    this.messageService.changeaState(false);
+    this.messageService.sendMessage(false);
+  }
+
+  placeData(data: gettedData) {
+    this.clientData = this.formatData(data);
+    this.clientCharacteristics = this.formatCharacteristics(data);
+    this.messageService.changeaState(true);
   }
 
   getClientData() {
@@ -31,6 +48,21 @@ export class StoreService {
 
   getClientName() {
     return this.clientName;
+  }
+
+  getClientCharacteristics() {
+    return this.clientCharacteristics;
+  }
+
+  formatCharacteristics(data: gettedData): ClientCharacteristics | undefined {
+    let clientCharacteristics: ClientCharacteristics | undefined = undefined;
+
+    clientCharacteristics = {
+      dateOfBirth: data.Analizy[0].date_birth,
+      gender: data.Analizy[0].gender,
+      height: data.Analizy[0].height,
+    };
+    return clientCharacteristics;
   }
 
   private formatData(data: gettedData): ClientData | undefined {

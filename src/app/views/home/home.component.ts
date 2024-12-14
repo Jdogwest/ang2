@@ -19,9 +19,13 @@ export class HomeComponent {
   constructor() {}
 
   searchForClient() {
-    console.log(this.fio);
     this.storeService.getClientDataWithName(this.fio);
     this.messageService.sendMessage(true);
-    this.router.navigate(['tests-details/actual']);
+    this.messageService.gotData$.subscribe((data) => {
+      if (data) {
+        this.router.navigate(['tests-details/actual']);
+      }
+    });
+    this.fio = '';
   }
 }

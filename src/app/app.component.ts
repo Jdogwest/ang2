@@ -1,17 +1,18 @@
 import { Component, inject } from '@angular/core';
 import {
+  NavigationEnd,
+  Router,
   RouterModule,
   RouterOutlet,
-  Router,
-  NavigationEnd,
 } from '@angular/router';
 import { filter } from 'rxjs/operators';
+import { StoreService } from './services/store.service';
 
 import { CommonModule } from '@angular/common';
 import { Subscription } from 'rxjs';
+import { DialogComponent } from './components/dialog/dialog.component';
 import { SidebarInfoComponent } from './components/sidebar-info/sidebar-info.component';
 import { MessageService } from './services/message.service';
-import { DialogComponent } from './components/dialog/dialog.component';
 
 @Component({
   selector: 'app-root',
@@ -27,7 +28,9 @@ import { DialogComponent } from './components/dialog/dialog.component';
 })
 export class AppComponent {
   messageService: MessageService = inject(MessageService);
+  storeService: StoreService = inject(StoreService);
   subscription!: Subscription;
+  loadingSubscription!: Subscription;
   routerSubscription!: Subscription;
   clientFound = false;
   dialogOpened = false;
@@ -44,10 +47,13 @@ export class AppComponent {
   constructor(private router: Router) {}
 
   ngOnInit() {
+    this.router.navigate(['home']);
+    this.storeService.clear();
+
     this.routerSubscription = this.router.events
       .pipe(filter((event) => event instanceof NavigationEnd))
       .subscribe((event: NavigationEnd) => {
-        this.clientFound = event.urlAfterRedirects !== '/';
+        this.clientFound = event.urlAfterRedirects !== '/home';
       });
 
     this.subscription = this.messageService.message$.subscribe(
