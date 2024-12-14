@@ -1,14 +1,14 @@
 export interface ClientData {
   analysis: {
     name: string;
-    status: 'Действителен' | 'Не действителен';
+    status: string;
     date: string;
     result: {
       parameter: string;
       value: number;
       lower_limit: number;
       upper_limit: number;
-      difference: 'Повышен' | 'Нормально' | 'Ниже нормы';
+      difference: string;
     }[];
   }[];
   current_diagnosis: {
@@ -16,7 +16,7 @@ export interface ClientData {
     score: number;
     result: {
       parameter: string;
-      difference: 'Повышен' | 'Нормально' | 'Ниже нормы';
+      difference: string;
     }[];
   }[];
   saved_diagnosis: {
@@ -25,7 +25,7 @@ export interface ClientData {
     date: string;
     result: {
       parameter: string;
-      difference: 'Повышен' | 'Нормально' | 'Ниже нормы';
+      difference: string;
     }[];
   }[];
 }

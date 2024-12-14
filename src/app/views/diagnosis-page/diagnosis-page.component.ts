@@ -21,6 +21,7 @@ export class DiagnosisPageComponent {
 
   constructor() {
     this.diagnosisData = this.StoreService.getClientData()?.current_diagnosis;
+    this.diagnosisData.sort((a: any, b: any) => b.score - a.score);
   }
 
   public setActive(n: number) {

@@ -10,13 +10,10 @@
             placeholder="Введите ФИО пациента"
             class="form_input"
             type="text"
+            name="fio"
+            [(ngModel)]="this.fio"
           />
-          <button
-            class="form_btn"
-            type="submit"
-            (click)="searchForClient()"
-            routerLink="tests-details/actual"
-          >
+          <button class="form_btn" (click)="searchForClient()">
             <i class="pi pi-arrow-right"></i>
           </button>
         </div>
