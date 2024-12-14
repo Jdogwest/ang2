@@ -4,6 +4,8 @@ import { gettedData } from '../interface/getted-data.interface';
 import {
   ClientCharacteristics,
   ClientData,
+  formedSavedDiagnosis,
+  savedDiagnosis,
 } from './../interface/cliend-data.interface';
 import { MessageService } from './message.service';
 
@@ -54,6 +56,35 @@ export class StoreService {
     return this.clientCharacteristics;
   }
 
+  addSavedDiagnosis(selectedItems: savedDiagnosis[]) {
+    let formedItems: formedSavedDiagnosis[] = [];
+    selectedItems.forEach((item) => {
+      item.result.forEach((result) => {
+        formedItems.push({
+          id_disease: item.id_disease,
+          'Частота болезни': item.score,
+          id_indicator: result.id_indicator,
+          difference: result.difference,
+        });
+      });
+    });
+
+    let finalData = {
+      name_clienta: [
+        {
+          FIO: this.clientName,
+        },
+      ],
+      saved_disease: formedItems,
+    };
+
+    console.log(finalData);
+    let newClientData = this.http.post(
+      'http://127.0.0.1:8000/write_data',
+      finalData
+    );
+  }
+
   formatCharacteristics(data: gettedData): ClientCharacteristics | undefined {
     let clientCharacteristics: ClientCharacteristics | undefined = undefined;
 
@@ -90,8 +121,10 @@ export class StoreService {
         {
           name: data.Bolezni[0].name_disease,
           score: data.Bolezni[0]['Частота болезни'],
+          id_disease: data.Bolezni[0].id_disease,
           result: [
             {
+              id_indicator: data.Bolezni[0].id_indicator,
               parameter: data.Bolezni[0].title,
               difference: data.Bolezni[0].status_indicatora,
             },
@@ -148,6 +181,7 @@ export class StoreService {
         clientData.current_diagnosis.forEach((item, index) => {
           if (item.name === element.name_disease) {
             clientData.current_diagnosis[index].result.push({
+              id_indicator: element.id_indicator,
               parameter: element.title,
               difference: element.status_indicatora,
             });
@@ -159,8 +193,10 @@ export class StoreService {
           clientData.current_diagnosis.push({
             name: element.name_disease,
             score: element['Частота болезни'],
+            id_disease: element.id_disease,
             result: [
               {
+                id_indicator: element.id_indicator,
                 parameter: element.title,
                 difference: element.status_indicatora,
               },

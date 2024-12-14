@@ -15,7 +15,9 @@ export interface ClientData {
   current_diagnosis: {
     name: string;
     score: number;
+    id_disease: string;
     result: {
+      id_indicator: string;
       parameter: string;
       difference: string;
     }[];
@@ -35,4 +37,21 @@ export interface ClientCharacteristics {
   dateOfBirth: string;
   gender: string;
   height: number;
+}
+
+export interface savedDiagnosis {
+  name: string;
+  score: number;
+  id_disease: string;
+  result: {
+    id_indicator: string;
+    parameter: string;
+    difference: string;
+  }[];
+}
+export interface formedSavedDiagnosis {
+  id_disease: string;
+  'Частота болезни': number;
+  id_indicator: string;
+  difference: string;
 }
