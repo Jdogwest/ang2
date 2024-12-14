@@ -30,9 +30,16 @@
             <td *ngIf="data?.analysisData">
               {{ item.lower_limit }} - {{ item.upper_limit }}
             </td>
-            <td>
-              <span *ngIf="data?.analysisData">{{ item.difference }}</span>
-              <span *ngIf="data?.diagnosisData">{{ item.difference }}</span>
+            <td
+              [ngClass]="
+                item.difference == 'Норма'
+                  ? 'green_difference'
+                  : 'red_difference'
+              "
+            >
+              {{ item.difference }}
+              <!-- <span *ngIf="data?.analysisData">{{ item.difference }}</span>
+              <span *ngIf="data?.diagnosisData">{{ item.difference }}</span> -->
             </td>
           </tr>
         </tbody>

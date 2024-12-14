@@ -46,7 +46,13 @@ app-sidebar-info {
   z-index: 2;
   box-shadow: rgba(100, 100, 111, 0.5) 0px 0px 10px 0px;
 }
+.green_difference {
+  color: rgb(0, 156, 21);
+}
 
+.red_difference {
+  color: rgb(197, 0, 59);
+}
 :link {
   color: #000;
   text-decoration: none;
