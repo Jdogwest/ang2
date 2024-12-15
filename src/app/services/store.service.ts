@@ -45,7 +45,6 @@ export class StoreService {
   }
 
   placeData(data: gettedData) {
-    console.log(data);
     if (!data.Analizy)
       this.messageService.sendError('Пациент не имеет анализов.');
     this.clientData = this.formatData(data);
@@ -87,8 +86,6 @@ export class StoreService {
       saved_disease: formedItems,
     };
 
-    console.log(JSON.stringify(finalData));
-
     this.http
       .post('http://127.0.0.1:8000/write_data', finalData)
       .subscribe()
@@ -107,6 +104,7 @@ export class StoreService {
   }
 
   private formatData(data: gettedData): ClientData | undefined {
+    console.log(data);
     let clientData: ClientData | undefined = undefined;
 
     clientData = {
@@ -179,13 +177,13 @@ export class StoreService {
       }
     });
 
-    data.save_data?.forEach((element) => {
+    data.Save_data.forEach((element) => {
       let new_analys: boolean = true;
       clientData.saved_diagnosis.forEach((item, index) => {
         if (element.name_disease === item.name && element.date === item.date) {
           clientData.saved_diagnosis[index].result.push({
             parameter: element.title,
-            difference: element.status_indicatora,
+            difference: element.status_norma,
           });
           new_analys = false;
         }
@@ -199,14 +197,13 @@ export class StoreService {
           result: [
             {
               parameter: element.title,
-              difference: element.status_indicatora,
+              difference: element.status_norma,
             },
           ],
         });
       }
     });
 
-    console.log(clientData);
     return clientData;
   }
 }

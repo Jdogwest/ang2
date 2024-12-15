@@ -1,5 +1,5 @@
-import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { Component, Input } from '@angular/core';
 import { AppComponent } from '../../app.component';
 
 @Component({
@@ -14,6 +14,7 @@ export class savedDiagnosisTableComponent {
   constructor(private appComponent: AppComponent) {}
 
   openDialog(item: any): void {
+    console.log(this.data);
     this.appComponent.openDialog({
       diagnosisData: item,
     });

@@ -31,13 +31,13 @@ export interface gettedData {
     title: string;
     status_indicatora: string;
   }[];
-  save_data: {
+  Save_data: {
     id_disease: string;
     name_disease: string;
     Частота_болезни: number;
     date: string;
     id_indicator: string;
     title: string;
-    status_indicatora: string;
+    status_norma: string;
   }[];
 }
