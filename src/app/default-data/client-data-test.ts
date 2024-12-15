@@ -9,6 +9,7 @@ export const clientDataTest: ClientData = {
       result: [
         {
           parameter: 'Имя параметра',
+          unit: 'Ед. измерения',
           value: 10.0,
           lower_limit: 9.9,
           upper_limit: 10.1,
@@ -16,6 +17,7 @@ export const clientDataTest: ClientData = {
         },
         {
           parameter: 'Имя параметра 2',
+          unit: 'Ед. измерения',
           value: 10.0,
           lower_limit: 9.9,
           upper_limit: 10.1,
@@ -30,6 +32,7 @@ export const clientDataTest: ClientData = {
       result: [
         {
           parameter: 'Имя параметра',
+          unit: 'Ед. измерения',
           value: 15.2,
           lower_limit: 9.9,
           upper_limit: 10.1,
@@ -37,6 +40,7 @@ export const clientDataTest: ClientData = {
         },
         {
           parameter: 'Имя параметра 2',
+          unit: 'Ед. измерения',
           value: 8.0,
           lower_limit: 9.9,
           upper_limit: 10.1,
@@ -51,6 +55,7 @@ export const clientDataTest: ClientData = {
       result: [
         {
           parameter: 'Имя параметра',
+          unit: 'Ед. измерения',
           value: 10.0,
           lower_limit: 9.9,
           upper_limit: 10.1,
@@ -58,6 +63,7 @@ export const clientDataTest: ClientData = {
         },
         {
           parameter: 'Имя параметра 2',
+          unit: 'Ед. измерения',
           value: 10.0,
           lower_limit: 9.9,
           upper_limit: 10.1,
@@ -72,6 +78,7 @@ export const clientDataTest: ClientData = {
       result: [
         {
           parameter: 'Имя параметра',
+          unit: 'Ед. измерения',
           value: 10.0,
           lower_limit: 9.9,
           upper_limit: 10.1,
@@ -79,6 +86,7 @@ export const clientDataTest: ClientData = {
         },
         {
           parameter: 'Имя параметра 2',
+          unit: 'Ед. измерения',
           value: 10.0,
           lower_limit: 9.9,
           upper_limit: 10.1,
@@ -91,12 +99,15 @@ export const clientDataTest: ClientData = {
     {
       name: 'Имя диагноза',
       score: 10,
+      id_disease: 'id',
       result: [
         {
+          id_indicator: 'id',
           parameter: 'Имя параметра',
           difference: 'Ниже нормы',
         },
         {
+          id_indicator: 'id',
           parameter: 'Имя параметра 2',
           difference: 'Ниже нормы',
         },
@@ -105,12 +116,15 @@ export const clientDataTest: ClientData = {
     {
       name: 'Имя диагноза 2',
       score: 7,
+      id_disease: 'id',
       result: [
         {
+          id_indicator: 'id',
           parameter: 'Имя параметра 3',
           difference: 'Повышен',
         },
         {
+          id_indicator: 'id',
           parameter: 'Имя параметра 2',
           difference: 'Ниже нормы',
         },

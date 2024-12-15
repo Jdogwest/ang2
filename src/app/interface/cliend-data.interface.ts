@@ -51,7 +51,7 @@ export interface savedDiagnosis {
 }
 export interface formedSavedDiagnosis {
   id_disease: string;
-  'Частота болезни': number;
+  Частота_болезни: number;
   id_indicator: string;
   difference: string;
 }
