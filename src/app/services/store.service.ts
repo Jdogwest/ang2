@@ -149,7 +149,7 @@ export class StoreService {
       if (check === true) {
         let new_analys: boolean = true;
         clientData.analysis.forEach((item, index) => {
-          if (item.name === element.designation) {
+          if (item.name === element.designation && item.date === element.date) {
             clientData.analysis[index].result.push({
               parameter: element.title,
               unit: element.units_measurement,

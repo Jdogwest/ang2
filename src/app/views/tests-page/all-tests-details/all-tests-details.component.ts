@@ -12,6 +12,9 @@ export class AllTestsDetailsComponent {
   storeService: StoreService = inject(StoreService);
   analysisData: any;
   constructor() {
-    this.analysisData = this.storeService.getClientData()?.analysis;
+    this.analysisData = this.storeService
+      .getClientData()
+      ?.analysis.sort()
+      .reverse();
   }
 }

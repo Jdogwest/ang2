@@ -14,6 +14,8 @@ export class TestsDetailsComponent {
   constructor() {
     this.analysisData = this.storeService
       .getClientData()
-      ?.analysis.filter((item: any) => item.status === 'Действителен');
+      ?.analysis.filter((item: any) => item.status === 'Действителен')
+      .sort()
+      .reverse();
   }
 }
