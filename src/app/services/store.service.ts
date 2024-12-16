@@ -14,11 +14,12 @@ export class StoreService {
   private clientName: string = '';
 
   messageService: MessageService = inject(MessageService);
+  private http: HttpClient = inject(HttpClient);
 
   clientData: ClientData | undefined = undefined;
   clientCharacteristics: ClientCharacteristics | undefined = undefined;
 
-  constructor(private http: HttpClient) {}
+  constructor() {}
 
   getClientDataWithName(name: string) {
     this.clientName = name;
