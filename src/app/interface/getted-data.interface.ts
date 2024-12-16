@@ -34,8 +34,8 @@ export interface gettedData {
   Save_data: {
     id_disease: string;
     name_disease: string;
-    Частота_болезни: number;
-    date: string;
+    number_matches: number;
+    date_save: string;
     id_indicator: string;
     title: string;
     status_norma: string;

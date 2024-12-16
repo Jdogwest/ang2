@@ -90,6 +90,8 @@ export class StoreService {
       .post('http://127.0.0.1:8000/write_data', finalData)
       .subscribe()
       .unsubscribe();
+
+    this.getClientDataWithName(this.clientName);
   }
 
   formatCharacteristics(data: gettedData): ClientCharacteristics | undefined {
@@ -180,7 +182,10 @@ export class StoreService {
     data.Save_data.forEach((element) => {
       let new_analys: boolean = true;
       clientData.saved_diagnosis.forEach((item, index) => {
-        if (element.name_disease === item.name && element.date === item.date) {
+        if (
+          element.name_disease === item.name &&
+          element.date_save === item.date
+        ) {
           clientData.saved_diagnosis[index].result.push({
             parameter: element.title,
             difference: element.status_norma,
@@ -192,8 +197,8 @@ export class StoreService {
       if (new_analys === true) {
         clientData.saved_diagnosis.push({
           name: element.name_disease,
-          score: element.Частота_болезни,
-          date: element.date,
+          score: element.number_matches,
+          date: element.date_save,
           result: [
             {
               parameter: element.title,
@@ -204,6 +209,7 @@ export class StoreService {
       }
     });
 
+    console.log(data);
     return clientData;
   }
 }
