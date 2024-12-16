@@ -11,10 +11,8 @@ import { StoreService } from '../../../services/store.service';
 export class AllTestsDetailsComponent {
   storeService: StoreService = inject(StoreService);
   analysisData: any;
-  constructor() {
-    this.analysisData = this.storeService
-      .getClientData()
-      ?.analysis.sort()
-      .reverse();
+  constructor() {}
+  ngOnInit() {
+    this.analysisData = this.storeService.getClientData()?.analysis;
   }
 }

@@ -33,6 +33,7 @@ export class HomeComponent {
 
     this.messageService.gotError$.subscribe((message: string) => {
       if (message) {
+        console.log(123);
         this.gotError = true;
         this.router.navigate(['home']);
         this.messageService.sendMessage(false);
