@@ -27,12 +27,17 @@ export class StoreService {
     let newClientData = this.http.get('http://127.0.0.1:8000/patient/' + name, {
       observe: 'response',
     });
-    let subscription = newClientData.subscribe({
+    newClientData.subscribe({
       next: (response: any) => {
-        this.placeData(response.body); // Передаем только тело ответа в метод placeData
+        if (response.body.Analizy?.length === 0) {
+          console.log(response.body);
+          this.messageService.sendError('Пациент не имеет анализов.');
+        } else {
+          this.placeData(response.body);
+        }
       },
       error: (error: any) => {
-        this.messageService.sendError('Пациент не найден.');
+        this.messageService.sendError('Ошибка поиска');
       },
     });
   }
@@ -107,7 +112,6 @@ export class StoreService {
   }
 
   private formatData(data: gettedData): ClientData | undefined {
-    console.log(data);
     let clientData: ClientData | undefined = undefined;
 
     clientData = {
@@ -210,7 +214,8 @@ export class StoreService {
       }
     });
 
-    console.log(data);
+    clientData.analysis.sort().reverse();
+
     return clientData;
   }
 }
