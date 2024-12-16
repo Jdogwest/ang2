@@ -3,25 +3,22 @@
     <div class="text">
       <h1 class="search_text">Поиск нужного пациента</h1>
     </div>
-    <div>
-      <form>
-        <div class="form_group">
-          <input
-            placeholder="Введите ФИО пациента"
-            class="form_input"
-            type="text"
-            name="fio"
-            [(ngModel)]="this.fio"
-          />
-          <button class="form_btn" (click)="searchForClient()">
-            <i class="pi pi-arrow-right"></i>
-          </button>
-        </div>
-      </form>
-      <p *ngIf="this.gotError" class="error_text">
-        Ошибка поиска пациента. Проверьте правильность данных и повторите
-        попытку.
-      </p>
-    </div>
+    <form>
+      <div class="form_group">
+        <input
+          placeholder="Введите ФИО пациента"
+          class="form_input"
+          type="text"
+          name="fio"
+          [(ngModel)]="this.fio"
+        />
+        <button class="form_btn" (click)="searchForClient()">
+          <i class="pi pi-arrow-right"></i>
+        </button>
+      </div>
+    </form>
+    <p *ngIf="this.gotError" class="error_text">
+      Ошибка поиска пациента. Проверьте правильность данных и повторите попытку.
+    </p>
   </div>
 </div>

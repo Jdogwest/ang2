@@ -6,18 +6,34 @@
   flex-direction: column;
   height: 100vh;
   overflow-y: auto;
+  overflow-x: hidden;
   scrollbar-width: thin;
   scrollbar-color: #7f6abe transparent;
+  position: relative;
 }
 
 .sidebar::-webkit-scrollbar-thumb:hover {
   background: #5e4a9f;
 }
-
-.patient_info {
-  margin: 30px 0;
+.menu-toggle {
+  display: none;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: 30px;
+  cursor: pointer;
+  background: transparent;
+  border: none;
 }
 
+.action_links {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.navigation_link {
+  margin-bottom: 50px;
+}
 .navigation_link a {
   font-size: 16px;
   color: rgb(70, 70, 70);
@@ -52,7 +68,6 @@
 }
 
 .action_link:hover {
-  /* background: #ddcaff; */
   box-shadow: 1px 1px 3px 2px rgba(53, 31, 75, 0.3);
 }
 
@@ -63,4 +78,59 @@
 }
 .action_link.active:hover {
   box-shadow: none;
+}
+@keyframes fillBackgroundFromCorner {
+  0% {
+    clip-path: circle(0 at top right);
+  }
+  100% {
+    clip-path: circle(150% at top right);
+  }
+}
+@keyframes emptyBackgroundToCorner {
+  0% {
+    clip-path: circle(150% at top right);
+  }
+  100% {
+    clip-path: circle(0 at top right);
+  }
+}
+@media screen and (max-width: 1200px) {
+  .sidebar {
+    width: 100%;
+    height: 100%;
+  }
+  .navigation_link {
+    margin-bottom: 30px;
+  }
+  .menu-toggle {
+    display: block;
+    z-index: 1000;
+  }
+
+  .action_links.show,
+  .action_links.hide {
+    top: 0;
+    left: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #605092;
+    clip-path: circle(0 at top right);
+    padding: 60px 30px;
+  }
+  .action_links.show > .action_link {
+    color: white;
+  }
+  .action_links.show > .action_link.active {
+    background: white;
+    color: black;
+  }
+  .action_links.show {
+    animation: fillBackgroundFromCorner 1s forwards ease-in-out;
+  }
+  .action_links.hide {
+    animation: emptyBackgroundToCorner 0.5s forwards ease-in-out;
+  }
 }

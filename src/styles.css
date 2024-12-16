@@ -24,14 +24,13 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-height: 100vh;
 }
 
 .table_group {
   position: relative;
   width: 100%;
   padding: 0 20px;
-  max-height: 85vh;
+  max-height: 100vh;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
@@ -50,7 +49,7 @@ app-sidebar-info {
   color: rgb(0, 143, 19);
 }
 
-.bed_difference {
+.bad_difference {
   color: rgb(155, 0, 46);
 }
 :link {
@@ -60,4 +59,16 @@ app-sidebar-info {
 
 :visited {
   color: #000;
+}
+@media screen and (max-width: 1200px) {
+  .layout {
+    flex-direction: column;
+  }
+  .content {
+    max-height: 60vh;
+  }
+  app-sidebar-info {
+    /* position: absolute; */
+    z-index: 15;
+  }
 }

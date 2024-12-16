@@ -1,10 +1,7 @@
 .btn_group {
-  background: white;
-  border-radius: 25px;
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
   margin-bottom: 50px;
 }
 
@@ -14,10 +11,10 @@
   font-size: 18px;
   color: #4f4375;
   font-weight: 700;
-  padding: 15px 160px;
+  padding: 15px 150px;
   cursor: pointer;
-  /* transition: all 0.3s ease; */
   border-radius: 25px;
+  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
 }
 
 .btn.selected {
@@ -28,13 +25,11 @@
   border-radius: 25px;
   border: 4px solid #605092;
   cursor: default;
-  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
 }
 
 .btn:not(.selected):hover {
   background-color: #e7dfff;
   color: #4f4375;
-  box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
   transform: scale(1.05);
-  /* transition: all 0.3s ease; */
 }

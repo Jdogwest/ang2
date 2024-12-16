@@ -15,8 +15,10 @@ export class SidebarInfoComponent {
   activity1: string = 'active';
   activity2: string = '';
   activity3: string = '';
+  showLinks: boolean = false;
 
   patientName: string = '';
+
   patientCharacteristics: ClientCharacteristics | undefined = undefined;
 
   messageService: MessageService = inject(MessageService);
@@ -47,6 +49,9 @@ export class SidebarInfoComponent {
         this.activity3 = 'active';
         break;
     }
+  }
+  toggleMenu() {
+    this.showLinks = !this.showLinks;
   }
 
   public goHome() {

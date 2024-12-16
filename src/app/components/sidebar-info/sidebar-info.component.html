@@ -1,4 +1,7 @@
 <div class="sidebar">
+  <button class="menu-toggle" (click)="toggleMenu()">
+    <i class="pi pi-bars"></i>
+  </button>
   <div class="navigation_link">
     <a class="link" routerLink="" (click)="this.goHome()">
       <i class="pi pi-arrow-left"></i> Поиск другого пациента
@@ -18,7 +21,7 @@
     </p>
   </div>
 
-  <div class="action_links">
+  <div class="action_links" [ngClass]="{ show: showLinks, hide: !showLinks }">
     <a
       routerLink="tests-details/actual"
       class="action_link"
