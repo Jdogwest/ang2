@@ -24,7 +24,10 @@ export class StoreService {
   getClientDataWithName(name: string) {
     this.clientName = name;
 
-    let newClientData = this.http.get('http://127.0.0.1:8000/patient/' + name, {
+    /* let newClientData = this.http.get('http://127.0.0.1:8000/patient/' + name, {
+      observe: 'response',
+    }); */
+    let newClientData = this.http.get('http://5.35.4.74/api/patient' + name, {
       observe: 'response',
     });
     newClientData.subscribe({
@@ -90,7 +93,8 @@ export class StoreService {
     };
 
     this.http
-      .post('http://127.0.0.1:8000/write_data', finalData)
+      //.post('http://127.0.0.1:8000/write_data', finalData)
+      .post('http://5.35.4.74/api/write_data', finalData)
       .subscribe()
       .unsubscribe();
 
