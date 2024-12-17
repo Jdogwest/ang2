@@ -30,7 +30,6 @@ export class StoreService {
     newClientData.subscribe({
       next: (response: any) => {
         if (response.body.Analizy?.length === 0) {
-          console.log(response.body);
           this.messageService.sendError('Пациент не имеет анализов.');
         } else {
           this.placeData(response.body);
@@ -51,8 +50,6 @@ export class StoreService {
   }
 
   placeData(data: gettedData) {
-    if (!data.Analizy)
-      this.messageService.sendError('Пациент не имеет анализов.');
     this.clientData = this.formatData(data);
     this.clientCharacteristics = this.formatCharacteristics(data);
     this.messageService.changeaState(true);

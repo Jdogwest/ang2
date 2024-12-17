@@ -22,19 +22,6 @@ export class SavedDiagnosisPageComponent {
 
   public savedDiagnosisData: any;
 
-  public setActive(n: number) {
-    this.activity1 = '';
-    this.activity2 = '';
-    switch (n) {
-      case 1:
-        this.activity1 = 'selected';
-        break;
-      case 2:
-        this.activity2 = 'selected';
-        break;
-    }
-  }
-
   constructor() {
     this.savedDiagnosisData =
       this.storeService.getClientData()?.saved_diagnosis;
