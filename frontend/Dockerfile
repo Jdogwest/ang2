@@ -1,6 +1,6 @@
 FROM node:22.8.0 as build
 
-COPY package.json package.json
+COPY package.json .
 RUN npm install
 
 COPY . .
