@@ -34,7 +34,7 @@ app.add_middleware(
 )
 
 
-@app.get("/patient/{name_client}")
+@app.get("/api/patient/{name_client}")
 async def root(name_client: str):
     # Первый запрос к базе данных
     query = f"select * from Клиент k    join Ведение v on k.id_clienta = v.id_clienta    join ПриемПоказатели pp on v.id_introduction = pp.id_introduction    join Показатели p on pp.id_indicator = p.id_indicator    join Анализы a on p.id_analys = a.id_analys where k.FIO LIKE '{name_client}'"
@@ -77,7 +77,7 @@ async def root(name_client: str):
 
 
 
-@app.post('/write_data')
+@app.post('/api/write_data')
 async def save_data(data: RequestData):
     print(data)
     with sqlite3.connect('./Interface3000bTest2.db') as conn:
