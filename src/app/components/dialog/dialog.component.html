@@ -38,15 +38,48 @@
               "
             >
               {{ item.difference }}
-              <!-- <span *ngIf="data?.analysisData">{{ item.difference }}</span>
-              <span *ngIf="data?.diagnosisData">{{ item.difference }}</span> -->
             </td>
           </tr>
         </tbody>
       </table>
+
+      <div class="dropdown">
+        <div
+          class="dropdown_item"
+          *ngFor="
+            let item of data?.analysisData?.result ||
+              data?.diagnosisData?.result
+          "
+        >
+          <details class="details">
+            <summary class="details_header">{{ item.parameter }}</summary>
+            <div class="details_content">
+              <div *ngIf="data?.analysisData">
+                Единица измерения: {{ item.unit }}
+              </div>
+              <div *ngIf="data?.analysisData">Результат: {{ item.value }}</div>
+              <div *ngIf="data?.analysisData">
+                Рефересное значение: {{ item.lower_limit }} -
+                {{ item.upper_limit }}
+              </div>
+              <div>
+                Отклонение:
+                <span
+                  [ngClass]="
+                    item.difference == 'Норма'
+                      ? 'normal_difference'
+                      : 'bad_difference'
+                  "
+                  >{{ item.difference }}</span
+                >
+              </div>
+            </div>
+          </details>
+        </div>
+      </div>
+      <button class="btn_close" (click)="closeDialog()">
+        <i class="pi pi-times"></i>
+      </button>
     </div>
-    <button class="btn_close" (click)="closeDialog()">
-      <i class="pi pi-times"></i>
-    </button>
   </div>
 </div>

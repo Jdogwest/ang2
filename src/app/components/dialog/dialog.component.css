@@ -67,13 +67,12 @@
 }
 .table th {
   font-weight: bold;
-  padding: 20px;
+  padding: 20px 10px;
   border: none;
   border-bottom: 3px solid #7f6abe;
 }
 
 .table td {
-  font-size: 18px;
   padding: 20px 0;
   border: none;
   background: rgb(230, 219, 252);
@@ -115,6 +114,47 @@
   padding: 0 50px;
   text-align: left;
 }
+.dropdown {
+  display: none;
+}
+
+.details {
+  background-color: #f1edfa;
+  border-radius: 20px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 1px 10px 0px;
+  overflow: hidden;
+  border: 2px solid #7f6abe2f;
+}
+
+.details summary {
+  list-style: none;
+  padding: 20px 30px;
+  cursor: pointer;
+}
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details summary::marker {
+  display: none;
+}
+
+details[open] summary {
+  background: #e3d8f7;
+}
+
+.details_content {
+  padding: 10px 30px;
+  background: white;
+  overflow: hidden;
+}
+
+.details_content > div {
+  margin: 15px 0;
+}
+
 @media screen and (max-width: 1200px) {
   .dialog_content {
     width: 90%;
@@ -140,5 +180,30 @@
   }
   .dialog_content {
     padding: 0;
+  }
+}
+@media screen and (max-width: 810px) {
+  .table {
+    display: none;
+  }
+  .dropdown {
+    display: block;
+  }
+}
+@media screen and (max-width: 530px) {
+  .details {
+    font-size: 16px;
+  }
+  .details summary {
+    padding: 15px 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .details_content {
+    padding: 10px 20px;
+  }
+  .dialog_name {
+    margin-right: 100px;
   }
 }

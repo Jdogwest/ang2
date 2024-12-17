@@ -13,9 +13,6 @@ export class DialogComponent {
 
   constructor(private appComponent: AppComponent) {}
 
-  // ngOnChanges() {
-  //   console.log(this.data);
-  // }
   closeDialog() {
     this.appComponent.closeDialog();
   }

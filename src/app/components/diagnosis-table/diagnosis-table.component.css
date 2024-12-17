@@ -14,15 +14,14 @@
 .table th {
   background: #f1edfa;
   font-weight: bold;
-  padding: 20px 30px;
+  padding: 20px 10px;
   border: none;
   border-bottom: 3px solid #7f6abe;
 }
 .table td {
   text-align: center;
-  font-size: 18px;
   color: rgb(53, 53, 53);
-  padding: 20px 10px;
+  padding: 20px 0;
   border: none;
   background: white;
   position: relative;
