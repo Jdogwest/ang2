@@ -2,4 +2,3 @@ fastapi
 pydantic
 datetime
 uvicorn
-sqlite3
