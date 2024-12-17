@@ -1,10 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
+from datetime import datetime
 import uvicorn
 import sqlite3
-
-from datetime import datetime
 
 class DiseaseData(BaseModel):
     id_disease: str
