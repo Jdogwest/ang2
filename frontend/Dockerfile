@@ -1,4 +1,4 @@
-FROM node:23.4 as build
+FROM node:22.8.0 as build
 
 COPY package.json package.json
 RUN npm install
