@@ -24,18 +24,6 @@ export class DiagnosisPageComponent {
     this.diagnosisData.sort((a: any, b: any) => b.score - a.score);
   }
 
-  public setActive(n: number) {
-    this.activity1 = '';
-    this.activity2 = '';
-    switch (n) {
-      case 1:
-        this.activity1 = 'selected';
-        break;
-      case 2:
-        this.activity2 = 'selected';
-        break;
-    }
-  }
   public editDiagnosis() {
     this.editMode = true;
   }
