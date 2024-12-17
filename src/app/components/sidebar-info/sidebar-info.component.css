@@ -15,7 +15,7 @@
 .sidebar::-webkit-scrollbar-thumb:hover {
   background: #5e4a9f;
 }
-.menu-toggle {
+.menu_toggle {
   display: none;
   position: absolute;
   top: 30px;
@@ -24,6 +24,7 @@
   cursor: pointer;
   background: transparent;
   border: none;
+  color: #5e4a9f;
 }
 
 .action_links {
@@ -38,6 +39,7 @@
   font-size: 16px;
   color: rgb(70, 70, 70);
   cursor: pointer;
+  display: inline-block;
 }
 .navigation_link a:hover {
   opacity: 0.8;
@@ -99,15 +101,18 @@
   .sidebar {
     width: 100%;
     height: 100%;
+    padding: 0;
   }
-  .navigation_link {
-    margin-bottom: 30px;
+  .patient_info {
+    padding: 20px;
   }
-  .menu-toggle {
+  .menu_toggle {
     display: block;
     z-index: 1000;
   }
-
+  .menu_toggle.activity {
+    color: white;
+  }
   .action_links.show,
   .action_links.hide {
     top: 0;
@@ -118,7 +123,7 @@
     display: flex;
     background: #605092;
     clip-path: circle(0 at top right);
-    padding: 60px 30px;
+    padding: 80px 30px;
   }
   .action_links.show > .action_link {
     color: white;
@@ -132,5 +137,19 @@
   }
   .action_links.hide {
     animation: emptyBackgroundToCorner 0.5s forwards ease-in-out;
+  }
+  .navigation_link {
+    background-color: #f1edfa;
+    padding: 20px;
+    margin: 0;
+    /* border-bottom: 3px solid #5e4a9f; */
+  }
+  .navigation_link a {
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    cursor: pointer;
+    background-color: #5e4a9f;
+    padding: 15px 20px;
+    border-radius: 20px;
   }
 }

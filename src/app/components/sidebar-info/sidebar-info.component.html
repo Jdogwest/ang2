@@ -1,5 +1,9 @@
 <div class="sidebar">
-  <button class="menu-toggle" (click)="toggleMenu()">
+  <button
+    class="menu_toggle"
+    (click)="toggleMenu()"
+    [ngClass]="showLinks ? 'activity' : ''"
+  >
     <i class="pi pi-bars"></i>
   </button>
   <div class="navigation_link">

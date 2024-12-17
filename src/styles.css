@@ -30,7 +30,7 @@
   position: relative;
   width: 100%;
   padding: 0 20px;
-  max-height: 100vh;
+  max-height: 85vh;
   overflow-y: auto;
   overflow-x: hidden;
   scrollbar-width: thin;
@@ -42,7 +42,7 @@
 }
 
 app-sidebar-info {
-  z-index: 2;
+  z-index: 15;
   box-shadow: rgba(100, 100, 111, 0.5) 0px 0px 10px 0px;
 }
 .normal_difference {
@@ -70,5 +70,14 @@ app-sidebar-info {
   app-sidebar-info {
     /* position: absolute; */
     z-index: 15;
+  }
+}
+@media screen and (max-width: 700px) {
+  .main-content {
+    padding: 0;
+  }
+  .text,
+  form {
+    padding: 0 30px;
   }
 }

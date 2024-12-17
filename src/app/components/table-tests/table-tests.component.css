@@ -72,3 +72,8 @@ tbody tr {
   color: #605092;
   cursor: pointer;
 }
+@media screen and (max-width: 660px) {
+  .table th {
+    padding: 15px 15px;
+  }
+}

@@ -15,11 +15,12 @@
 .dialog_content {
   position: relative;
   background: white;
-  padding: 70px;
+  padding: 50px;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   width: 80%;
   height: 80vh;
+  transition: 0.5s;
 }
 
 .dialog_name {
@@ -39,8 +40,9 @@
   cursor: pointer;
 }
 .dialog_table {
-  height: 100%;
+  height: 90%;
   overflow-y: auto;
+  overflow-x: hidden;
   padding: 0 20px;
   scrollbar-width: thin;
   scrollbar-color: #7f6abe transparent;
@@ -65,7 +67,7 @@
 }
 .table th {
   font-weight: bold;
-  padding: 20px 0;
+  padding: 20px;
   border: none;
   border-bottom: 3px solid #7f6abe;
 }
@@ -80,7 +82,6 @@
 
 .table tr {
   border-radius: 20px;
-  overflow: hidden;
 }
 
 .table tr:first-child td:first-child {
@@ -113,4 +114,31 @@
   overflow-wrap: break-word;
   padding: 0 50px;
   text-align: left;
+}
+@media screen and (max-width: 1200px) {
+  .dialog_content {
+    width: 90%;
+    height: 90vh;
+  }
+}
+@media screen and (max-width: 1060px) {
+  .table th:nth-child(1),
+  .table td:nth-child(1) {
+    padding: 0 30px;
+  }
+  .dialog_content {
+    width: 100%;
+    height: 100vh;
+  }
+  .btn_close {
+    top: 34px;
+    right: 34px;
+  }
+  .dialog_name {
+    padding: 30px;
+    margin-bottom: 0;
+  }
+  .dialog_content {
+    padding: 0;
+  }
 }
