@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { inject, Injectable } from '@angular/core';
+import { serverAddress } from '../default-data/server-info';
 import {
   ClientCharacteristics,
   ClientData,
@@ -24,21 +25,16 @@ export class StoreService {
   getClientDataWithName(name: string) {
     this.clientName = name;
 
-    /* let newClientData = this.http.get('http://127.0.0.1:8000/patient/' + name, {
+    let newClientData = this.http.get(serverAddress + 'patient/' + name, {
       observe: 'response',
-    }); */
-    let newClientData = this.http.get(
-      'http://5.35.4.74:8000/api/patient' + name,
-      {
-        observe: 'response',
-      }
-    );
+    });
     newClientData.subscribe({
       next: (response: any) => {
         if (response.body.Analizy?.length === 0) {
           this.messageService.sendError('Пациент не имеет анализов.');
         } else {
           this.placeData(response.body);
+          this.messageService.sendMessage(true);
         }
       },
       error: (error: any) => {
@@ -96,8 +92,7 @@ export class StoreService {
     };
 
     this.http
-      //.post('http://127.0.0.1:8000/write_data', finalData)
-      .post('http://5.35.4.74:8000/api/write_data', finalData)
+      .post(serverAddress + 'write_data', finalData)
       .subscribe()
       .unsubscribe();
 

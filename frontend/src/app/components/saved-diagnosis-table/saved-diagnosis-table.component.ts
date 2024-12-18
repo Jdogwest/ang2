@@ -14,7 +14,6 @@ export class savedDiagnosisTableComponent {
   constructor(private appComponent: AppComponent) {}
 
   openDialog(item: any): void {
-    console.log(this.data);
     this.appComponent.openDialog({
       diagnosisData: item,
     });

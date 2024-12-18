@@ -2,9 +2,7 @@
   <div class="dialog_content">
     <h2 class="dialog_name">
       {{ data?.analysisData?.name || data?.diagnosisData?.name }}
-      ({{
-        data?.analysisData?.date || (data?.diagnosisData?.date ?? "Неизвестно")
-      }})
+      {{ data?.analysisData?.date || (data?.diagnosisData?.date ?? "") }}
     </h2>
     <div class="dialog_table">
       <table class="table" *ngIf="data">

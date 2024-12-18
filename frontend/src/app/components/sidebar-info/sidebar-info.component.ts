@@ -26,12 +26,7 @@ export class SidebarInfoComponent {
 
   constructor() {
     this.patientName = this.storeService.getClientName();
-    this.messageService.gotData$.subscribe((message: boolean) => {
-      if (message) {
-        this.patientCharacteristics =
-          this.storeService.getClientCharacteristics();
-      }
-    });
+    this.patientCharacteristics = this.storeService.getClientCharacteristics();
   }
 
   public setActive(n: number) {

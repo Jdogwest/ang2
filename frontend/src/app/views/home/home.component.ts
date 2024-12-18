@@ -34,13 +34,9 @@ export class HomeComponent {
     this.messageService.gotError$.subscribe((message: string) => {
       if (message) {
         this.gotError = true;
-        this.router.navigate(['home']);
-        this.messageService.sendMessage(false);
-        this.messageService.sendError('');
       }
     });
 
-    this.messageService.sendMessage(true);
     this.messageService.gotData$.pipe(first()).subscribe((data) => {
       if (data) {
         this.router.navigate(['tests-details/actual']);
